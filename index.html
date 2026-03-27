@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porter Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-2xl">Porter Delivery</h1>
+    </header>
+    <main class="container mx-auto mt-5">
+        <h2 class="text-xl mb-4">Book Your Delivery</h2>
+        <form id="booking-form" class="bg-white p-5 rounded shadow-md">
+            <div class="mb-4">
+                <label for="name" class="block">Your Name:</label>
+                <input type="text" id="name" class="border rounded w-full p-2" required />
+            </div>
+            <div class="mb-4">
+                <label for="pickup-location" class="block">Pickup Location:</label>
+                <input type="text" id="pickup-location" class="border rounded w-full p-2" required />
+            </div>
+            <div class="mb-4">
+                <label for="dropoff-location" class="block">Dropoff Location:</label>
+                <input type="text" id="dropoff-location" class="border rounded w-full p-2" required />
+            </div>
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded">Book Delivery</button>
+        </form>
+        <div id="confirmation" class="hidden mt-5 text-green-600"></div>
+    </main>
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const pickup = document.getElementById('pickup-location').value;
+            const dropoff = document.getElementById('dropoff-location').value;
+            document.getElementById('confirmation').innerHTML = `<p>Booking confirmed for ${name}. Pickup at ${pickup} & Dropoff at ${dropoff}.</p>`;
+            document.getElementById('confirmation').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
